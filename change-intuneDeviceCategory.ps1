@@ -206,20 +206,8 @@ $global:authToken = Get-AuthToken -User $User
 
 
 #region Change Device Category
-
- #this is an example for 1 device:
- # $intuneDeviceId = 'd5e3ab73-efc8-4e3c-991b-8d50f8baa91c' #update the IntuneDeviceID, you will need to implement a loop for mutiple devices
+ 
  $devicereqput = "https://graph.microsoft.com/beta/deviceManagement/deviceCategories/$($DeviceCategoryID)"
-
-# $props = @{
-#
-#
-#           URL = "https://graph.microsoft.com/beta/deviceManagement/deviceCategories/"
-#            DeviceCategoryID = $DeviceCategoryID
-#            colon = ":"
-#
-#        }
-#        $deviceCategoryReqBody = {"@odata.id" + $($props.colon) + $($props.URL) + $($props.DeviceCategoryID)} #update the deviceCateg id   
 
 $DeviceCategoryReqBody = @{
                             '@odata.id' = "https://graph.microsoft.com/beta/deviceManagement/deviceCategories/$($DeviceCategoryID)"
@@ -238,4 +226,3 @@ $DeviceCategoryReqBody = @{
 #  Invoke-RestMethod -Uri "https://graph.microsoft.com/beta/deviceManagement/deviceCategories/" -Headers $authToken -Method Get
 
 #endregion
-
